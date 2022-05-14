@@ -1,4 +1,4 @@
-# [Movie Fight]()
+# [Movie Fight](https://peaceful-torte-84a773.netlify.app/)
 ## Overview
 A web application for comparing 2 movies based on some stats
 ![image](https://user-images.githubusercontent.com/58177619/168418587-cd460a3f-c49f-403b-97f5-0d3a8515d2a9.png)
