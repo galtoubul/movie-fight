@@ -41,6 +41,13 @@ createAutoComplete({
 
 let leftMovie;
 let rightMovie;
+
+/**
+ * Fetches the selected movie details, diplays them in the right side and make comparision
+ * @param {object} movie            the selected movie from the dropdown
+ * @param {object} summaryElement   the element on which the summary will be appended to
+ * @param {string} side             the side on which the movie summary is going to be presented on
+ */
 const onMovieSelect = async (movie, summaryElement, side) => {
   const response = await axios.get("http://www.omdbapi.com/", {
     params: { apikey: "a39d71c7", i: movie.imdbID },
@@ -68,6 +75,7 @@ const runComparision = () => {
   leftSideStats.forEach((leftStat, index) => {
     const rightStat = rightSideStats[index];
 
+    // Extract data-value value
     const leftSideValue = pasreInt(leftStat.dataset.value);
     const rightSideValue = parseInt(rightStat.dataset.value);
     if (leftSideValue < rightSideValue) {
@@ -81,6 +89,7 @@ const runComparision = () => {
 };
 
 const movieTemplate = (movieDetail) => {
+  // Extract data for the comparision
   const dollars = parseInt(
     movieDetail.BoxOffice.replace(/\$/g, "").replace(/,/g, "")
   );
@@ -92,7 +101,7 @@ const movieTemplate = (movieDetail) => {
     if (isNaN(value)) {
       return prev;
     } else {
-      return prev + value;
+      return prev + value; // sum awards
     }
   }, 0);
   return `

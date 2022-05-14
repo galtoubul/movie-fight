@@ -1,3 +1,13 @@
+/**
+ * Creates an autocomplete component
+ * @param {object}      root            the element on which the component will be appended to
+ * @param {function}    renderOption    creates a single option in the dropdown
+ * @param {function}    onOptionSelect  as it sounds
+ * @param {function}    inputValue      returns the data to be diplayed in the search input
+ *                                      after selecting an option from the dropdown
+ * @param {function}    fetchData       async function that returns the fetched data from the
+ *                                      external api
+ */
 const createAutoComplete = ({
   root,
   renderOption,
@@ -30,6 +40,7 @@ const createAutoComplete = ({
     resultsWrapper.innerHTML = "";
     dropdown.classList.add("is-active");
 
+    // Display options
     for (let item of items) {
       const option = document.createElement("a");
       option.classList.add("dropdown-item");
@@ -45,6 +56,7 @@ const createAutoComplete = ({
 
   input.addEventListener("input", debounce(onInput, 500));
 
+  // Close the dropdown when the user clicked outside of it
   document.addEventListener("click", (event) => {
     if (!root.contains(event.target)) {
       dropdown.classList.remove("is-active");
