@@ -7,6 +7,7 @@ const autoCompleteConfig = {
         `;
   },
   onOptionSelect(movie) {
+    document.querySelector(".tutorial").classList.add("is-hidden");
     onMovieSelect(movie);
   },
   inputValue(movie) {
@@ -23,10 +24,12 @@ const autoCompleteConfig = {
     return response.data.Search;
   },
 };
+
 createAutoComplete({
   root: document.querySelector("#left-autocomplete"),
   ...autoCompleteConfig,
 });
+
 createAutoComplete({
   root: document.querySelector("#right-autocomplete"),
   ...autoCompleteConfig,
