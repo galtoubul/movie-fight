@@ -76,7 +76,7 @@ const runComparision = () => {
     const rightStat = rightSideStats[index];
 
     // Extract data-value value
-    const leftSideValue = pasreInt(leftStat.dataset.value);
+    const leftSideValue = parseInt(leftStat.dataset.value);
     const rightSideValue = parseInt(rightStat.dataset.value);
     if (leftSideValue < rightSideValue) {
       leftStat.classList.remove("is-primary");
